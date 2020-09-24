@@ -1,9 +1,9 @@
 FROM centos:8
 
-ENV ETCD_URL="https://github.com/etcd-io/etcd/releases/download"
+ENV GITHUB_URL="https://github.com/etcd-io/etcd/releases/download"
 ENV ETCD_VER="v3.4.13"
 ENV ETCD_ARCH="amd64"
-ENV ETCD_URL="${ETCD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz"
+ENV ETCD_URL="${GITHUB_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz"
 # The path inside the container where the rpm is copied to
 ENV CONTAINER_PATH="/built_rpms"
 
@@ -20,6 +20,9 @@ RUN yum -y install rpm-build rpm-devel rpmlint rpmdevtools \
     && cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcdctl /root/rpmbuild/BUILD/
 
 COPY etcd.spec /root/rpmbuild/SPECS/
+COPY etcd.service /root/rpmbuild/BUILD/
+COPY etcd.conf /root/rpmbuild/BUILD/
+
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN cd rpmbuild \
