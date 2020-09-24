@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV GITBUB_URL="https://github.com/etcd-io/etcd/releases/download"
+ENV GITHUB_URL="https://github.com/etcd-io/etcd/releases/download"
 ENV ETCD_VER="v3.4.13"
 ENV ETCD_ARCH="amd64"
 ENV ETCD_URL="${GITHUB_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz"

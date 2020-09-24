@@ -2,4 +2,4 @@
 
 set -e
 
-cp /root/rpmbuild/RPMS/x86_64/*.rpm ${OUTPUT_PATH}/
+cp /root/rpmbuild/RPMS/x86_64/*.rpm ${CONTAINER_PATH}/
