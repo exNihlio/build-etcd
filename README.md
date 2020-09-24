@@ -1,5 +1,5 @@
 ## What is this?
-Build etcd for Centos/RHEL 7 and 8. The only requirements are Docker and Bash
+Build etcd for Centos/RHEL 7 and 8. The only requirements are Docker and Bash.
 Support for Debian and Ubuntu is coming.
 
 ## How does it work?
@@ -44,5 +44,5 @@ may result in confusion. It is advised the keep these two the same.
 
 As said before, Debian/Ubuntu support is coming. Possibly others.
 
-The next goal is support for Amazon CodeBuild, with the ability to push to S3 and/or S3 compatible
+The next goal is support for Amazon CodeBuild, with the ability to push to S3 and/or an S3 compatible
 object store.
