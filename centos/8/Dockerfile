@@ -20,6 +20,9 @@ RUN yum -y install rpm-build rpm-devel rpmlint rpmdevtools \
     && cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcdctl /root/rpmbuild/BUILD/
 
 COPY etcd.spec /root/rpmbuild/SPECS/
+COPY etcd.service /root/rpmbuild/BUILD/
+COPY etcd.conf /root/rpmbuild/BUILD/
+
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN cd rpmbuild \
