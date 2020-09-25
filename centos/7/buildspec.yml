@@ -13,15 +13,15 @@ phases:
       - yum -y install rpm-build rpm-devel rpmlint rpmdevtools
       - cd /root
       - rpmdev-setuptree
-      - curl -L ${ETCD_URL} -o /root/rpmbuild/SOURCES/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz
+      - curl -L ${ETCD_URL} -o /root/rpmbuild/SOURCES/etcd-$ETCD_VER-linux-$ETCD_ARCH.tar.gz
       - tar -C /root/rpmbuild/BUILD -xzvf /root/rpmbuild/SOURCES/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz
       - cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcd /root/rpmbuild/BUILD/
       - cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcdctl /root/rpmbuild/BUILD/
   pre_build:
     commands:
-      - copy build-etcd/centos/7/etcd.spec /root/rpmbuild/SPECS/
-      - copy build-etcd/etcd.service /root/rpmbuild/BUILD/
-      - copy build-etc/etcd.conf /root/rpmbuild/BUILD/
+      - cp build-etcd/centos/7/etcd.spec /root/rpmbuild/SPECS/
+      - cp build-etcd/etcd.service /root/rpmbuild/BUILD/
+      - cp build-etc/etcd.conf /root/rpmbuild/BUILD/
   build:
     commands:
       - cd /root/rpmbuild/
