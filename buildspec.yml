@@ -1,22 +1,21 @@
 version: 0.2
 env:
   shell: /bin/bash
-  #  
 phases:
   install:
     commands:
       - yum -y install rpm-build rpm-devel rpmlint rpmdevtools curl
       - cd /root
       - rpmdev-setuptree
-      - curl -L ${ETCD_URL} -o /root/rpmbuild/SOURCES/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz
-      - tar -C /root/rpmbuild/BUILD -xzvf /root/rpmbuild/SOURCES/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz
-      - cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcd /root/rpmbuild/BUILD/
-      - cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcdctl /root/rpmbuild/BUILD/
+      - curl -L $ETCD_URL -o /root/rpmbuild/SOURCES/etcd-$ETCD_VER-linux-$ETCD_ARCH.tar.gz
+      - tar -C /root/rpmbuild/BUILD -xzvf /root/rpmbuild/SOURCES/etcd-$ETCD_VER-linux-$ETCD_ARCH.tar.gz
+      - cp /root/rpmbuild/BUILD/etcd-$ETCD_VER-linux-$ETCD_ARCH/etcd /root/rpmbuild/BUILD/
+      - cp /root/rpmbuild/BUILD/etcd-$ETCD_VER-linux-$ETCD_ARCH/etcdctl /root/rpmbuild/BUILD/
   pre_build:
     commands:
-      - copy build-etcd/${DISTRO}/${OS_VERSION}/etcd.spec /root/rpmbuild/SPECS/
-      - copy build-etcd/${DISTRO}/${OS_VERSION}/etcd.service /root/rpmbuild/BUILD/
-      - copy build-etc/${DISTRO}/${OS_VERSION}/etcd.conf /root/rpmbuild/BUILD/
+      - copy build-etcd/$DISTRO/$OS_VERSION/etcd.spec /root/rpmbuild/SPECS/
+      - copy build-etcd/$DISTRO/$OS_VERSION/etcd.service /root/rpmbuild/BUILD/
+      - copy build-etcd/$DISTRO/$OS_VERSION/etcd.conf /root/rpmbuild/BUILD/
   build:
     commands:
       - cd /root/rpmbuild/
