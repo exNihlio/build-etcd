@@ -4,6 +4,9 @@ env:
 phases:
   install:
     commands:
+      - export FOO="BAR"
+      - echo $BAR
+      - echo ${BAR}
       - yum -y install rpm-build rpm-devel rpmlint rpmdevtools curl
       - cd /root
       - rpmdev-setuptree
