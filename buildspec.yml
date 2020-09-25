@@ -1,6 +1,6 @@
 version: 0.2
-env:
-  shell: /bin/bash
+# env:
+#   shell: /bin/bash
 phases:
   install:
     commands:
@@ -16,9 +16,9 @@ phases:
       - cp /root/rpmbuild/BUILD/etcd-$ETCD_VER-linux-$ETCD_ARCH/etcdctl /root/rpmbuild/BUILD/
   pre_build:
     commands:
-      - copy build-etcd/$DISTRO/$OS_VERSION/etcd.spec /root/rpmbuild/SPECS/
-      - copy build-etcd/$DISTRO/$OS_VERSION/etcd.service /root/rpmbuild/BUILD/
-      - copy build-etcd/$DISTRO/$OS_VERSION/etcd.conf /root/rpmbuild/BUILD/
+      - cp build-etcd/$DISTRO/$OS_VERSION/etcd.spec /root/rpmbuild/SPECS/
+      - cp build-etcd/$DISTRO/$OS_VERSION/etcd.service /root/rpmbuild/BUILD/
+      - cp build-etcd/$DISTRO/$OS_VERSION/etcd.conf /root/rpmbuild/BUILD/
   build:
     commands:
       - cd /root/rpmbuild/
