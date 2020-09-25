@@ -2,10 +2,10 @@ version: 0.2
 env:
   shell: /bin/bash
   variables:
-    GITHUB_URL: "https://github.com/etcd-io/etcd/releases/download"
-    ETCD_VER: "v3.4.13"
-    ETCD_ARCH: "amd64"
-    ETCD_URL: "${GITHUB_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz"
+    # GITHUB_URL: "https://github.com/etcd-io/etcd/releases/download"
+    # ETCD_VER: "v3.4.13"
+    # ETCD_ARCH: "amd64"
+    # ETCD_URL: "${GITHUB_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz"
 
 phases:
   install:
