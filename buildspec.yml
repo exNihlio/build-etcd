@@ -10,7 +10,7 @@ env:
 phases:
   install:
     commands:
-      - yum -y install rpm-build rpm-devel rpmlint rpmdevtools
+      - yum -y install rpm-build rpm-devel rpmlint rpmdevtools curl
       - cd /root
       - rpmdev-setuptree
       - curl -L ${ETCD_URL} -o /root/rpmbuild/SOURCES/etcd-${ETCD_VER}-linux-${ETCD_ARCH}.tar.gz
