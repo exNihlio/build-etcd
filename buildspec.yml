@@ -19,9 +19,9 @@ phases:
       - cp /root/rpmbuild/BUILD/etcd-${ETCD_VER}-linux-${ETCD_ARCH}/etcdctl /root/rpmbuild/BUILD/
   pre_build:
     commands:
-      - copy build-etcd/centos/7/etcd.spec /root/rpmbuild/SPECS/
-      - copy build-etcd/etcd.service /root/rpmbuild/BUILD/
-      - copy build-etc/etcd.conf /root/rpmbuild/BUILD/
+      - copy build-etcd/${DISTRO}/${OS_VERSION}/etcd.spec /root/rpmbuild/SPECS/
+      - copy build-etcd/${DISTRO}/${OS_VERSION}/etcd.service /root/rpmbuild/BUILD/
+      - copy build-etc/${DISTRO}/${OS_VERSION}/etcd.conf /root/rpmbuild/BUILD/
   build:
     commands:
       - cd /root/rpmbuild/
